@@ -1,8 +1,10 @@
 # jsTHING
 
-Doing things with jsTHING instead of Pure JS
-
 `( ) [ ] + !`
+
+How jsTHING (work)s. Shows you the inner (work)ings. Hopefully it makes sense unless you're at (work).
+
+Oh wait, my jokes don't (work)? My bad, I'm trying to (work).
 
 ## Boolean: true/false
 
@@ -50,7 +52,8 @@ Repeat `+!![]` n times.
 
 ## Function: [].find
 
-```[][
+```
+[][
     "undefined"[4]+
     "undefined"[5]+
     "undefined"[1]+
@@ -62,11 +65,11 @@ Repeat `+!![]` n times.
 
 ## Function: Function (Part 1)
 
-Idea: `[].find['constructor']`
+How do we get this? My answer: `[]['find']['constructor']`
 
-We have `[].find` from the previous one. Now we need to index `'constructor'` from it to get `Function`.
+We just found `[]['find']`. Now we need to index `'constructor'` from it to get `Function`.
 
-We need the letters `constru`.
+We need the letters: `constru`
 
 Let's start with...
 
@@ -107,17 +110,17 @@ It's harder now. We have 2 more characters left to get...
 
 ## Function: Function (Part 2)
 
-We need the letters `constru`.
+We needed the letters `constru`
 
-We've gotten `nstru`.
+We've gotten `nstru`
 
-That leaves the 2 letters `co`.
+That leaves the 2 letters `co`
 
-Luckily, the letters `co` are in...
+Luckily, they are both in...
 
 ## <s>Function: find</s> String: "function find() { [native code] }"
 
-... made with `[]['find']+[]`.
+... which is made with `[]['find']+[]`.
 
 Here's the jsTHING version:
 
@@ -139,7 +142,7 @@ Putting it all together:
 
 ## String: "constructor"
 
-Just find the jsTHING version of each character one by one and add `+` in between. "c" + "o" + "n" + ...
+Just find the jsTHING version of each character (one by one) and put `+` in between. "c" + "o" + "n" + ...
 
 `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+(![]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+(!![]+[])[+!![]]`
 
