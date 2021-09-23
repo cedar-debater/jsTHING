@@ -4,7 +4,7 @@ Doing things with jsTHING instead of Pure JS
 
 `( ) [ ] + !`
 
-## Boolean: the booleans
+## Boolean: true/f
 
 Let's start simple.
 
@@ -110,4 +110,4 @@ We've gotten `untr`.
 
 That leaves the letters `cos`.
 
-TBC ->
+## TBC ->
