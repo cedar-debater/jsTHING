@@ -197,6 +197,39 @@ Then we can get its constructor (which is String)
 
 Then we'll need `fromCharCode` - the distinct characters are `fromCharde`...
 
-## String: "fromCharCode" (Part 1) TBC ->
+## String: "fromCharCode" (Part 1)
+
+Right now, some of the strings we can get are:
+
+```
+"false" // []+![]
+"true" // []+!![]
+"undefined" // []+[][[]]
+"function anonymous(\n) {\n\n}" // []+( Function() )
+```
+
+Let's go through them one by one, and see how they help:
+
+### `"false"`
+
+With `"false"`, we can get these bold letters: **f**romCh**a**rd**e**
+
+### `"true"`
+
+With `"true"`, we can get these bold letters: **r**omCh**r**d
+
+### `"undefined"`
+
+With `"undefined"`, we can get these bold letters: omCh**d**
+
+### `"function anonymous(\n) {\n\n}"`
+
+With that, we can get these bold letters: **om**Ch
+
+## String: "fromCharCode" (Part 2)
+
+We just need the letters `C` and `h`.
+
+# TBC ->
 
 <!-- Function()+[] => "function anonymous(\n) {\n\n}" -->
