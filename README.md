@@ -80,7 +80,7 @@ Let's start with...
 
 Nice and easy. Similar for `n`, which is made with `"undefined"[1]`
 
-`([][[]]+[])[+!![]+!![]]`
+`([][[]]+[])[+!![]]`
 
 `t` and `r` are both in `true`, so
 
@@ -95,7 +95,7 @@ Nice and easy. Similar for `n`, which is made with `"undefined"[1]`
 
 Similar for `r`, it's gotten with `"true"[1]`.
 
-`(!![])[+!![]+!![]]`
+`(!![])[+!![]]`
 
 What about `s`?
 
