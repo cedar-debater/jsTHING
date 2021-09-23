@@ -11,8 +11,8 @@ Oh wait, my jokes don't (work)? My bad, I'll try to make them (work) better.
 Let's start simple.
 
 ```
-![] // false
-!![] // true
+![] // false for weird reasons
+!![] // true for weird reasons
 ```
 
 Now for...
@@ -26,25 +26,33 @@ Now for...
 
 ## String: "undefined"
 
-```undefined+[]
+```
+undefined+[]
 // add [] to undefined, coerce to string
 
 [][[]]+[]
 ```
 
-## Number: 1
+## Numbers: 0 and 1
 
-`+!![]`
+0 is simple `+[]`
+
+What that does is force `[]` into a number. It becomes 0.
+
+1 is this: `+!![]`
+
+As we saw before, `!![]` is `true` (for weird reasons) - when coerced into a number, it becomes 1.
 
 By extension...
 
-## Number: n
+## Number: <*number to create*>
 
-Repeat `+!![]` n times.
+Simply repeat the code for 1 (`+!![]`) <*number to create*> times.
 
 ## Number: NaN
 
-```+undefined
+```
++undefined
 // Undefined cannot be converted to a number properly, so becomes NaN
 
 +[][[]]
@@ -152,25 +160,24 @@ Finally, we're ready.
 
 How do we get it? Here's how.
 
-`Function`
-
-`<any function>.constructor`
-
-`<any function>['constructor']`
-
-`[]['find']['constructor']`
-
-`[][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]][([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+(![]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+(!![]+[])[+!![]]]`
+```
+Function
+<any function>.constructor
+<any function>['constructor']
+[].find['constructor']
+[]['find']['constructor']
+[][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]][([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+(![]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+(!![]+[])[+!![]]]
+```
 
 Okay, we got `Function`. But now...
 
 ## What next?
 
-Well, to evaluate normal code in jsTHING, you would have to do `Function(*normal code*)()`.
+Well, we would want to prove you can run ANY code in jsTHING. We could do that with `Function(<normal code>)()`
 
-Very simple, but there's mainly only one way to reliably make a string in jsTHING: `String.fromCharCode`
+Very simple, but there's mainly only one way (I can think of) to reliably make a string in jsTHING: `String.fromCharCode`
 
-This is because we can make numbers reliably in jsTHING (repeat `+!![]` <*number to make*> times.)
+We can make numbers reliably in jsTHING (repeat `+!![]` <*number to make*> times). We can then pass them to `String.fromCharCode` and get any character we want. Once we concatenate many of these and put `Function(...)()` around that, TADA! Normal JS in jsTHING.
 
 All we need now is String.fromCharCode; once we have that, we can turn any normal JS string into a jsTHING program (with some help from `Function`)
 
@@ -187,5 +194,9 @@ Mostly simple.
 Then we can get its constructor (which is String)
 
 `([]+[])[([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+(![]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+(!![]+[])[+!![]]]`
+
+Then we'll need `fromCharCode` - the distinct characters are `fromCharde`...
+
+## String: "fromCharCode" (Part 1) TBC ->
 
 <!-- Function()+[] => "function anonymous(\n) {\n\n}" -->
