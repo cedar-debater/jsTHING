@@ -4,7 +4,7 @@ Doing things with jsTHING instead of Pure JS
 
 `( ) [ ] + !`
 
-## Boolean: true/f
+## Boolean: true/false
 
 Let's start simple.
 
@@ -30,18 +30,15 @@ Now for...
 [][[]]+[]
 ```
 
+## Number: 1
+
+`+!![]`
+
+By extension...
+
 ## Number: n
 
-Let `n` be the number.
-
-(`++[` repeated n times) concatenated with (`[+[]]]` repeated n times)
-evaluates to n
-
-Generation functions:
-
-`generateNumber=n=>('++['.repeat(n)+'[+[]]]'.repeat(n)); // JavaScript`
-
-`generate_number = lambda n:''.join(['++['*n,'[+[]]]'*n]) # Python`
+Repeat `+!![]` n times.
 
 ## Number: NaN
 
@@ -56,11 +53,11 @@ Generation functions:
 ```[][
     "undefined"[4]+
     "undefined"[5]+
-    "undefined"[6]+
-    "undefined"[8]
+    "undefined"[1]+
+    "undefined"[2]
 ]
 
-[][([][[]]+[])[++[++[++[++[+[]][+[]]][+[]]][+[]]][+[]]]+([][[]]+[])[++[++[++[++[++[+[]][+[]]][+[]]][+[]]][+[]]][+[]]]+([][[]]+[])[++[++[++[++[++[++[+[]][+[]]][+[]]][+[]]][+[]]][+[]]][+[]]]+([][[]]+[])[++[++[++[++[++[++[++[++[[+[]]][+[]]][+[]]][+[]]][+[]]][+[]]][+[]]][+[]]][+[]]]]
+[][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]
 ```
 
 ## Function: Function (Part 1)
@@ -83,7 +80,7 @@ Let's start with...
 
 Nice and easy. Similar for `n`, which is made with `"undefined"[1]`
 
-`([][[]]+[])[++[+[]][+[]]]`
+`([][[]]+[])[+!![]+!![]]`
 
 `t` and `r` are both in `true`, so
 
@@ -98,16 +95,47 @@ Nice and easy. Similar for `n`, which is made with `"undefined"[1]`
 
 Similar for `r`, it's gotten with `"true"[1]`.
 
-`(!![])[++[+[]][+[]]]`
+`(!![])[+!![]+!![]]`
 
-It's harder now. We have a few characters left to get...
+What about `s`?
+
+## String: "s"
+
+If you think, it's just `"false"[3]` which becomes `![][+!![]+!![]+!![]]`
+
+It's harder now. We have 2 more characters left to get...
 
 ## Function: Function (Part 2)
 
 We need the letters `constru`.
 
-We've gotten `untr`.
+We've gotten `nstru`.
 
-That leaves the letters `cos`.
+That leaves the 2 letters `co`.
+
+Luckily, the letters `co` are in...
+
+## <s>Function: find</s> String: "function find() { [native code] }"
+
+... made with `[]['find']+[]`.
+
+Here's the jsTHING version:
+
+`[][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[]`
+
+(remember brackets if you're using this yourself)
+
+Now for the letters `co`.
+
+## String: "c", "o", "co"
+
+`c`: `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]`
+
+`o`: `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]`
+
+`co`: `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]`
+Putting it all together:
+
+## String: "constructor"
 
 ## TBC ->
