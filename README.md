@@ -134,11 +134,13 @@ Here's the jsTHING version:
 
 `[][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[]`
 
-(remember brackets if you're using this yourself)
+(remember brackets if you're indexing this)
 
 Now for the letters `co`.
 
 ## String: "c", "o", "co"
+
+`c` is the 3rd index of `function find() { [native code] }`; `o` is the 6th.
 
 `c`: `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]`
 
@@ -146,7 +148,23 @@ Now for the letters `co`.
 
 `co`: `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]`
 
-Putting it all together:
+But wait, we need to quickly do something before we complete our `constructor`.
+
+## String: "v"
+
+`v` is the `"23"`rd index of `function find() { [native code] }`.
+
+`"23"` in jsTHING would be:
+
+```
+2+[]+3
+true+true+[]+(true+true+true)
+!![]+!![]+[]+(!![]+!![]+!![])
+```
+
+So `v` is: `([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[!![]+!![]+[]+(!![]+!![]+!![])]`
+
+Back to `constructor`, let's put it all together:
 
 ## String: "constructor"
 
@@ -175,61 +193,19 @@ Okay, we got `Function`. But now...
 
 Well, we would want to prove you can run ANY code in jsTHING. We could do that with `Function(<normal code>)()`
 
-Very simple, but there's mainly only one way (I can think of) to reliably make a string in jsTHING: `String.fromCharCode`
+But what happens with the code being `return 3`? That could be a problem.
 
-We can make numbers reliably in jsTHING (repeat `+!![]` <*number to make*> times). We can then pass them to `String.fromCharCode` and get any character we want. Once we concatenate many of these and put `Function(...)()` around that, TADA! Normal JS in jsTHING.
+I never thought I'd type this, but...
 
-All we need now is String.fromCharCode; once we have that, we can turn any normal JS string into a jsTHING program (with some help from `Function`)
+... we need `eval`.
 
-So let's try that.
-
-## Function: String
-
-Mostly simple.
-```
-([]+[])['constructor']
-```
-
-`[]+[]` becomes an empty string due to something called "type coercion"
-Then we can get its constructor (which is String)
-
-`([]+[])[([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+(![]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]]+(!![]+[])[+[]]+([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[+!![]+!![]+!![]+!![]+!![]+!![]]+(!![]+[])[+!![]]]`
-
-Then we'll need `fromCharCode` - the distinct characters are `fromCharde`...
-
-## String: "fromCharCode" (Part 1)
-
-Right now, some of the strings we can get are:
+## Function: eval
 
 ```
-"false" // []+![]
-"true" // []+!![]
-"undefined" // []+[][[]]
-"function anonymous(\n) {\n\n}" // []+( Function() )
+"e": (!![]+[])[!![]+!![]+!![]]
+"v": ([][([][[]]+[])[+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+!![]]+([][[]]+[])[+!![]+!![]]]+[])[!![]+!![]+[]+(!![]+!![]+!![])]
+"a": (![]+[])[+!![]]
+"l": ?
 ```
-
-Let's go through them one by one, and see how they help:
-
-### `"false"`
-
-With `"false"`, we can get these bold letters: **f**romCh**a**rd**e**
-
-### `"true"`
-
-With `"true"`, we can get these bold letters: **r**omCh**r**d
-
-### `"undefined"`
-
-With `"undefined"`, we can get these bold letters: omCh**d**
-
-### `"function anonymous(\n) {\n\n}"`
-
-With that, we can get these bold letters: **om**Ch
-
-## String: "fromCharCode" (Part 2)
-
-We just need the letters `C` and `h`.
-
-# TBC ->
 
 <!-- Function()+[] => "function anonymous(\n) {\n\n}" -->
